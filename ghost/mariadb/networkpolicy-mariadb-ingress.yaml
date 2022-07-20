@@ -1,0 +1,9 @@
+# Source: ghost/charts/mariadb/templates/primary/networkpolicy-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: # kpt-merge: /mariadb
+  name: mariadb
+  annotations:
+    internal.kpt.dev/upstream-identifier: networking.k8s.io|NetworkPolicy|default|mariadb
+spec:
+  ingress:

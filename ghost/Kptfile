@@ -1,0 +1,26 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: ghost
+  annotations:
+    config.kubernetes.io/local-config: "true"
+upstream:
+  type: git
+  git:
+    repo: git@github.com:googlecontainertools/kpt
+    directory: /package-examples/ghost
+    ref: v0
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: git@github.com:googlecontainertools/kpt
+    directory: /package-examples/ghost
+    ref: package-examples/ghost/v0
+    commit: 940e3bb35cfe91eddcb7bd871cc0e8269179c5d2
+info:
+  description: sample description
+pipeline:
+  mutators:
+    - image: gcr.io/kpt-fn/set-namespace:v0.3.4
+      configPath: package-context.yaml

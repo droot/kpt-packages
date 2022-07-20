@@ -1,0 +1,14 @@
+# Source: ghost/templates/pvc.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: # kpt-merge: example/ghost-app
+  name: ghost-app
+  namespace: example
+  annotations:
+    internal.kpt.dev/upstream-identifier: '|PersistentVolumeClaim|example|ghost-app'
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "8Gi"

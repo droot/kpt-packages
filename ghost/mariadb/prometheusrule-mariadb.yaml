@@ -1,0 +1,12 @@
+# Source: ghost/charts/mariadb/templates/prometheusrules.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata: # kpt-merge: example/mariadb
+  name: mariadb
+  namespace: example
+  annotations:
+    internal.kpt.dev/upstream-identifier: monitoring.coreos.com|PrometheusRule|example|mariadb
+spec:
+  groups:
+  - name: mariadb
+    rules: []
