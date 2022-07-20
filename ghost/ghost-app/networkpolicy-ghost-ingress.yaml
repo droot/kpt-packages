@@ -1,8 +1,0 @@
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata: # kpt-merge: /ghost-app
-  name: ghost-app
-  annotations:
-    internal.kpt.dev/upstream-identifier: networking.k8s.io|NetworkPolicy|default|ghost-app
-spec:
-  ingress:
