@@ -9,15 +9,15 @@ upstream:
   git:
     repo: git@github.com:googlecontainertools/kpt
     directory: /package-examples/ghost
-    ref: v0
+    ref: main
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
     repo: git@github.com:googlecontainertools/kpt
     directory: /package-examples/ghost
-    ref: package-examples/ghost/v0
-    commit: 940e3bb35cfe91eddcb7bd871cc0e8269179c5d2
+    ref: main
+    commit: 472e41171eb495afd4291b6f7c159de69feab0c1
 info:
   description: sample description
 pipeline:
