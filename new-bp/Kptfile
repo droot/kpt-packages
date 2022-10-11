@@ -11,6 +11,6 @@ pipeline:
   - image: gcr.io/kpt-fn/set-namespace:v0.4.1
     configPath: package-context.yaml
   validators:
-  - image: gcr.io/kpt-fn/kubeval:v0.3.0
+  - image: gcr.io/kpt-fn/kubevavl:v0.3.0
     configMap:
-      strict: 'true'
+      strict: "true"
