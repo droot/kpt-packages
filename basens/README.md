@@ -1,7 +1,7 @@
 # basens
 
 ## Description
-kpt package for provisioning namespace
+basens description
 
 ## Usage
 
