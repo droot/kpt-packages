@@ -12,3 +12,4 @@ pipeline:
     configPath: package-context.yaml
   validators:
   - image: gcr.io/kpt-fn/kubeval:v0.3.0
+    configPath: config-map.yaml
