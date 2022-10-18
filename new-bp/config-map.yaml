@@ -4,4 +4,4 @@ metadata:
   name: default
   namespace: example
 data:
-  ignore_missing_schemas: true
+  ignore_missing_schemas: "true"
