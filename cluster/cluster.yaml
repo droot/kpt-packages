@@ -1,0 +1,15 @@
+apiVersion: container.cnrm.cloud.google.com/v1beta1
+kind: ContainerCluster
+metadata:
+  name: example
+  namespace: config-control
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
+  labels:
+    location: us-west1
+spec:
+  description: example
+  enableAutopilot: true
+  location: us-west1
+  releaseChannel:
+    channel: REGULAR

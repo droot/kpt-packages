@@ -1,0 +1,25 @@
+apiVersion: fn.kpt.dev/v1alpha1
+kind: ApplyReplacements
+metadata:
+  name: set-name
+  annotations:
+    config.kubernetes.io/local-config: "true"
+replacements:
+- source:
+    kind: ConfigMap
+    name: kptfile.kpt.dev
+    fieldPath: data.name
+  targets:
+  - select:
+      kind: ContainerCluster
+    fieldPaths:
+    - metadata.name
+    - spec.description
+- source:
+    kind: ContainerCluster
+    fieldPath: spec.location
+  targets:
+  - select:
+      kind: ContainerCluster
+    fieldPaths:
+    - metadata.labels.location
