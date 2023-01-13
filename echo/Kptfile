@@ -28,5 +28,3 @@ pipeline:
       configPath: fn-config-update-host.yaml
     - image: set-labels:v0.1.5
       configPath: fn-config-setlabels.yaml
-    - image: set-namespace:v0.3.4
-      configPath: package-context.yaml
