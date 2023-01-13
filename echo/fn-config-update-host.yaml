@@ -1,0 +1,33 @@
+apiVersion: fn.kpt.dev/v1alpha1
+kind: ApplyReplacements
+metadata: # kpt-merge: /update-host
+  name: update-host
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: fn.kpt.dev|ApplyReplacements|default|update-host
+  labels:
+    app: example
+replacements:
+- source:
+    kind: ConfigMap
+    name: kptfile.kpt.dev
+    fieldPath: data.name
+  targets:
+  - select:
+      name: set-labels
+      kind: SetLabels
+    fieldPaths:
+    - labels.app
+  - select:
+      name: echo
+      kind: Deployment
+    fieldPaths:
+    - spec.template.spec.containers.[name=echo].args.0
+    options:
+      delimiter: =
+      index: 1
+  - select:
+      name: set-labels
+      kind: SetLabels
+    fieldPaths:
+    - labels.app

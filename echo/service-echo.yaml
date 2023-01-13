@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata: # kpt-merge: example/echo
+  name: echo
+  namespace: example
+  labels:
+    app: example
+  annotations:
+    internal.kpt.dev/upstream-identifier: '|Service|example|echo'
+spec:
+  ports:
+  - port: 80
+    targetPort: 5678
+  selector:
+    app: example

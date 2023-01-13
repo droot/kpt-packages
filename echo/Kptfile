@@ -1,0 +1,32 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: echo
+  labels:
+    app: example
+  annotations:
+    config.kubernetes.io/local-config: "true"
+upstream:
+  type: git
+  git:
+    repo: git@github.com:googlecontainertools/kpt-samples
+    directory: /echo
+    ref: main
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: git@github.com:googlecontainertools/kpt-samples
+    directory: /echo
+    ref: main
+    commit: dfdb45e104dd1cf990cfa284b68d7346e4bb6a89
+info:
+  description: A simple echo service
+pipeline:
+  mutators:
+    - image: apply-replacements:v0.1.1
+      configPath: fn-config-update-host.yaml
+    - image: set-labels:v0.1.5
+      configPath: fn-config-setlabels.yaml
+    - image: set-namespace:v0.3.4
+      configPath: package-context.yaml
