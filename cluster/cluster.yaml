@@ -6,10 +6,12 @@ metadata:
   annotations:
     cnrm.cloud.google.com/blueprint: 'kpt-fn'
   labels:
-    location: us-west1
+    location/country: USA
+    location/state: example
+    location/city: example
 spec:
   description: example
-  enableAutopilot: true
+  initialNodeCount: 3
   location: us-west1
   releaseChannel:
     channel: REGULAR

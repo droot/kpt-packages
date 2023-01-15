@@ -15,11 +15,3 @@ replacements:
     fieldPaths:
     - metadata.name
     - spec.description
-- source:
-    kind: ContainerCluster
-    fieldPath: spec.location
-  targets:
-  - select:
-      kind: ContainerCluster
-    fieldPaths:
-    - metadata.labels.location
